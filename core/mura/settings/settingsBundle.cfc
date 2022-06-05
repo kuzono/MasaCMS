@@ -293,7 +293,7 @@ version 2 without this exception.  You may, if you choose, apply this exception 
 						fileID not in (#QuotedValueList(rstfiles.fileID)#)
 						<cfset started=true>
 					</cfif>
-
+			</cfquery>
 			<!--- If the theme does not live in the site directory add it from the global directory --->
 			<cfif (not directoryExists(expandPath($.siteConfig().getIncludePath() & "/includes/themes/#$.siteConfig('theme')#"))
 					or not directoryExists(expandPath($.siteConfig().getIncludePath() & "/themes/#$.siteConfig('theme')#"))
