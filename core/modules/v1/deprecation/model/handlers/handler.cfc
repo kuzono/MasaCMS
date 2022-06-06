@@ -18,20 +18,21 @@ component extends="mura.cfobject" {
 
 		if(local.deprecationType == ''){
 			local.deprecationType = 'Unknow Deprecation Type';
-		}
+		};
 		
 		if(!isArray(local.deprecationCallStack)) {
 			local.deprecationCallStack = [];			
 			local.deprecationCallStack[1] = 
-			{			
-				function = "No Deprecation CallStack Set"
+			{
+				'function' = 'No Deprecation CallStack Set'
 				, lineNumber =  "-1" 
 				, template = "Unknown template"
 			};
-		}		
-		
+
+		};		
+
 		writeDeprecationToLog(local.deprecationType, local.deprecationCallStack);
-	}	
+	};	
 
 	private void function writeDeprecationToLog(required string deprecationType, required array deprecationCallStack) {				
 		local.deprecationwarningsenabled = application.configBean.getValue(property='deprecationwarningsenabled');
@@ -45,7 +46,7 @@ component extends="mura.cfobject" {
 
 		if(structKeyExists(variables.deprecationLogDescription,arguments.deprecationType)){
 			local.deprecationDescription = variables.deprecationLogDescription[arguments.deprecationType];
-		}		
+		};		
 		
 		for(line in arguments.deprecationCallStack){	
 			local.line = arguments.deprecationCallStack[counter];
@@ -71,6 +72,6 @@ component extends="mura.cfobject" {
 		if(local.deprecationwarningsenabled){
 			// Write the log file
 			writeLog(type=local.logType, file=local.deprecationlogfile, text=local.logText, application="no");
-		}
-	}	
+		};
+	};	
 }
