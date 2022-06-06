@@ -41,7 +41,7 @@ component extends="mura.cfobject" {
 		local.counter = 1;
 		local.linesPrinted = 1;
 		local.stackTrace = '';
-		local.deprecationDescription = "No deprecation description found."
+		local.deprecationDescription = "No deprecation description found.";
 
 		if(structKeyExists(variables.deprecationLogDescription,arguments.deprecationType)){
 			local.deprecationDescription = variables.deprecationLogDescription[arguments.deprecationType];
