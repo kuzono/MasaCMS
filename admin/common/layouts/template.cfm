@@ -241,7 +241,7 @@ This file is part of Mura CMS.
 	</cfif>
 </head>
 <!--- use class no-constrain to remove fixed-width on inner containers --->
-<body id="#rc.originalcircuit#" class="mura-admin header-navbar-fixed no-constrain #trim(rc.bodyclass)#">
+<body id="#rc.originalcircuit#" class="<cfif rc.originalcircuit eq "cLogin">mlogin</cfif> mura-admin header-navbar-fixed no-constrain #trim(rc.bodyclass)#">
 
 	<!-- Page Container -->
 	<div id="page-container" class="<cfif session.siteid neq ''  and rc.$.currentUser().isLoggedIn() and rc.$.currentUser().isPrivateUser()>sidebar-l</cfif> sidebar-o <cfif cookie.ADMINSIDEBAR is 'off'> sidebar-mini</cfif> side-overlay-hover side-scroll header-navbar-fixed">
